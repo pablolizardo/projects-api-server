@@ -7,7 +7,11 @@ const SprintSchema = new Schema({
     project : { 
         type: Schema.Types.ObjectId,
         ref: "Project"
-    }
+    },
+    tasks : [{
+        type: Schema.Types.ObjectId,
+        ref: "Task"
+    }]
 })
 
 const Sprint = mongoose.model('Sprint', SprintSchema)

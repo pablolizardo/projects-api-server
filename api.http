@@ -1,8 +1,35 @@
-
-POST http://localhost:3000/api/projects/
+###
+POST http://localhost:3005/api/projects/
 Content-Type: application/json
 
 {
-    "rating" : 4,
-    "name" : "Camino"
+    "title" : "Camino",
+    "pink" : "pink"
+}
+
+###
+GET http://localhost:3005/api/projects/
+###
+
+###
+GET http://localhost:3005/api/sprints/
+###
+
+###
+POST http://localhost:3005/api/sprints/
+Content-Type: application/json
+
+{
+    "title" : "hola",
+    "type" : "mundo", 
+    "project": "5fa5913f3ea024036158f7d2"
+}
+
+###
+POST http://localhost:3005/api/tasks/
+Content-Type: application/json
+
+{
+    "title" : "hola mundo",
+    "sprint": "5fa5913f3ea024036158f7dc"
 }
