@@ -7,7 +7,11 @@ const ProjectSchema = new mongoose.Schema(
         order : { type: Number ,default : 0},
         type : { type: String },
         priority : { type: Number , default: 0}, 
-        active: { type: Number, default : 1}
+        active: { type: Number, default : 1}, 
+        sprints : [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Sprint"
+        }]
     },
     { timestamps: true },
 )

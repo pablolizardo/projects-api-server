@@ -1,6 +1,6 @@
-const Project = require('./../models/Project')
+const Project = require('../models/Project')
 
-store = (req, res) => {
+const store = (req, res) => {
     const body = req.body
     const project = new Project(body)
     project
@@ -19,9 +19,8 @@ store = (req, res) => {
             })
         })
 }
-get = async (req, res) => {
-    
-    const results = await Project.find()
+const get = async (req, res) => {
+    const results = await Project.find().populate("sprints")
     return res.status(201).json({results: results})
 }
 
