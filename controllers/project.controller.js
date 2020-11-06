@@ -20,9 +20,8 @@ store = (req, res) => {
         })
 }
 get = async (req, res) => {
-    
     const results = await Project.find()
-    return res.status(201).json({results: results})
+    return res.status(201).json(results)
 }
 
 module.exports = { store, get }
