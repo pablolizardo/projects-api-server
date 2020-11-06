@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "node db/seeds/index.js",
-    "start": "nodemon index.js",
+    "db:seed": "node db/seeds/index.js",
+    "db:truncate": "node db/seeds/truncate.js",
+    "serve": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

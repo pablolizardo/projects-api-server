@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 
 const Project = require('../../models/Project')
 const Sprint = require('../../models/Sprint')
-const { projects, sprints } = require('./data')
+const Task = require('../../models/Task')
+
 const options = { 
     useNewUrlParser: true,  
     useUnifiedTopology: true  
@@ -15,21 +16,11 @@ const db = mongoose.connection
 db.on('error', (error) => console.log(error))
 
 db.once('open', () => {
-    console.log('🗑 Truncate db...')
+    console.log('🗑\  Truncating db...')
     Project.deleteMany({}, () => console.log('deleted all projects'))
     Sprint.deleteMany({}, () => console.log('deleted all sprints'))
-    console.log('🐜 Seeding...')
-    projects.map(project => Project.create({
-        ...project,
-        order: Math.floor(Math.random() * 10),
-        priority: Math.floor(Math.random() * 10),
-    }))
-    // Project.findOne({ title: 'CUO' }, (err, docs) => {
-    //     sprints.map(sprint => Sprint.create({
-    //         ...sprint,
-    //         project: docs._id
-    //     }))
-    // })
-    console.log('✅ Done! ')
-
+    Task.deleteMany({}, () => console.log('deleted all tasks'))
 })
+console.log('✅\  ok...')
+
+return process.exit();

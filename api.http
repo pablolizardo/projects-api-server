@@ -1,11 +1,35 @@
-###
+# store project 
 POST http://localhost:3005/api/projects/
 Content-Type: application/json
 
 {
-    "title" : "Camino",
-    "pink" : "pink"
+    "title" : "home",
+    "color" : "pink",
+    "order": 3,
+    "priority": 5
 }
+### 
+
+# store sprint 
+POST http://localhost:3005/api/sprints/
+Content-Type: application/json
+
+{
+    "title" : "📚 documentar api",
+    "type" : "docs", 
+    "project": "5fa5c730b95d4c85cb883ab7"
+}
+###
+
+# store task 
+POST http://localhost:3005/api/tasks/
+Content-Type: application/json
+
+{
+    "title" : "documentar GET api user",
+    "sprint": "5fa5c755b95d4c85cb883ab8"
+}
+###
 
 ###
 GET http://localhost:3005/api/projects/
@@ -15,21 +39,3 @@ GET http://localhost:3005/api/projects/
 GET http://localhost:3005/api/sprints/
 ###
 
-###
-POST http://localhost:3005/api/sprints/
-Content-Type: application/json
-
-{
-    "title" : "hola",
-    "type" : "mundo", 
-    "project": "5fa5913f3ea024036158f7d2"
-}
-
-###
-POST http://localhost:3005/api/tasks/
-Content-Type: application/json
-
-{
-    "title" : "hola mundo",
-    "sprint": "5fa5913f3ea024036158f7dc"
-}

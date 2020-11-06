@@ -1,22 +1,31 @@
-const Sprint = require('./../models/Sprint')
+const Project = require("../models/Project");
+const Sprint = require("./../models/Sprint");
 
-const get = async (req,res) => {
-    const sprints = await Sprint.find()
-        .populate('tasks')
-        .populate('project')
-    return res.status(201).json(sprints)
-}
+const get = async (req, res) => {
+  const sprints = await Sprint.find()
+    .populate("tasks")
+    // .populate('project')
+    .select(["color", "title", "active", "priority"]);
+  return res.status(201).json(sprints);
+};
 
-const getById = async (req,res) => {
-    const sprint = await Sprint.findOne({_id:req.params.id})
-        .populate('tasks')
-        .populate('project')
-    return res.status(201).json(sprint)
-}
+const getById = async (req, res) => {
+  const sprint = await Sprint.findOne({ _id: req.params.id })
+    .populate("tasks")
+    .populate("project");
+  return res.status(201).json(sprint);
+};
 
-const store = async (req,res) => {
-    let sprint = await Sprint.create(req.body)
-    return res.status(201).json(sprint)
-}
+const store = async (req, res) => {
+  let sprint = new Sprint(req.body);
+  sprint.save(async (err, res) => {
+    let project = await Project.findById(req.body.project);
+    let sprints = project.sprints.concat(res._id);
+    project.sprints = sprints;
+    project.save();
+  });
 
-module.exports = { get , getById, store }
+  return res.status(201).json(sprint);
+};
+
+module.exports = { get, getById, store };

@@ -1,18 +1,15 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const SprintSchema = new Schema({
-    title: { type : String, required: true},
-    type: { type : String, default : 'dev'},
-    project : { 
-        type: Schema.Types.ObjectId,
-        ref: "Project"
+  title: { type: String, required: true },
+  type: { type: String, default: "dev" },
+  project: { type: Schema.Types.ObjectId, ref: "Project" },
+  tasks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Task",
     },
-    tasks : [{
-        type: Schema.Types.ObjectId,
-        ref: "Task"
-    }]
-})
+  ],
+});
 
-const Sprint = mongoose.model('Sprint', SprintSchema)
-module.exports = Sprint
+module.exports = mongoose.model("Sprint", SprintSchema);
