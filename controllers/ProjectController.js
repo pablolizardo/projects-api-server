@@ -4,7 +4,7 @@ const get = async (req, res) => {
   let results = await Project.find()
     .select(["color", "title", "active"])
     .where("active", 1)
-    .populate("sprints", ["title", "type"]);
+    .populate("sprints", ["title", "type", 'tasks', 'start', 'end']);
   return res.status(201).json(results);
 };
 const getById = async (req, res) => {

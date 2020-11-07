@@ -3,7 +3,7 @@ POST http://localhost:3005/api/projects/
 Content-Type: application/json
 
 {
-    "title" : "home",
+    "title" : "home-next",
     "color" : "pink",
     "order": 3,
     "priority": 5
@@ -15,9 +15,11 @@ POST http://localhost:3005/api/sprints/
 Content-Type: application/json
 
 {
-    "title" : "📚 documentar api",
-    "type" : "docs", 
-    "project": "5fa5c730b95d4c85cb883ab7"
+    "title" : "🌶 refactoring tasks",
+    "type" : "dev", 
+    "project": "5fa5913f3ea024036158f7d7",
+    "start": "2020-11-23",
+    "end": "2020-11-30"
 }
 ###
 
@@ -26,8 +28,8 @@ POST http://localhost:3005/api/tasks/
 Content-Type: application/json
 
 {
-    "title" : "documentar GET api user",
-    "sprint": "5fa5c755b95d4c85cb883ab8"
+    "title" : "PUT api user",
+    "sprint": "5fa5cf926912175d553e3ab6"
 }
 ###
 
