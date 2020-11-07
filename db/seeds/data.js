@@ -10,13 +10,19 @@ const projects = [
 ]
 
 const sprints = [
-    { title: 'dev' },
-    { title: 'design' },
-    { title: 'brainstorming' },
-    { title: 'dev' },
-    { title: 'deploy' },
-    { title: 'support' },
-    { title: 'docs' },
+    { 
+        "title" : "🌶 refactoring tasks",
+        "type" : "dev", 
+        "start": "2020-11-23",
+        "end": "2020-11-30"
+    },
+    { 
+        "title" : "🌶 refactoring tasks",
+        "type" : "dev", 
+        "start": "2020-11-23",
+        "end": "2020-11-30"
+    },
+    
 ]
 
 module.exports = { projects, sprints }

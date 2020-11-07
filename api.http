@@ -15,11 +15,11 @@ POST http://localhost:3005/api/sprints/
 Content-Type: application/json
 
 {
-    "title" : "🌶 refactoring tasks",
+    "title" : "⚠️ fixing bugs",
     "type" : "dev", 
-    "project": "5fa5913f3ea024036158f7d7",
-    "start": "2020-11-23",
-    "end": "2020-11-30"
+    "project": "5fa6ab69b475bf28cf17d8bf",
+    "start": "2020-11-02",
+    "end": "2020-11-17"
 }
 ###
 
