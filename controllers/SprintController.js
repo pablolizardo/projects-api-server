@@ -18,14 +18,14 @@ const getById = async (req, res) => {
 
 const store = async (req, res) => {
   let sprint = new Sprint(req.body);
-  sprint.save(async (err, res) => {
+  await sprint.save(async (err, res) => {
     let project = await Project.findById(req.body.project);
     let sprints = project.sprints.concat(res._id);
     project.sprints = sprints;
     project.save();
   });
-
   return res.status(201).json(sprint);
+
 };
 
 module.exports = { get, getById, store };
