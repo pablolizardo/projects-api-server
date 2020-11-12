@@ -5,7 +5,7 @@ const get = async (req, res) => {
   const sprints = await Sprint.find()
     .populate("tasks")
     // .populate('project')
-    .select(["color", "title", "active", "priority"]);
+    .select(["color", "title", "active", "priority", "progress"]);
   return res.status(201).json(sprints);
 };
 

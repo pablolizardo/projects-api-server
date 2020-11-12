@@ -2,9 +2,9 @@ const Project = require("../models/Project");
 
 const get = async (req, res) => {
   let results = await Project.find()
-    .select(["color", "title", "active"])
+    .select(["color", "title", "active", "type"])
     .where("active", 1)
-    .populate("sprints", ["title", "type", 'tasks', 'start', 'end']);
+    .populate("sprints", ["title", "type", 'tasks', 'start', 'end', 'progress']);
   return res.status(201).json(results);
 };
 const getById = async (req, res) => {
