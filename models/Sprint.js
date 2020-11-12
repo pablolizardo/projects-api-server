@@ -5,6 +5,7 @@ const SprintSchema = new Schema({
   type: { type: String, default: "dev" },
   start : { type: Date },
   end : { type: Date },
+  progress: { type: Number,  default : 0},
   project: { type: Schema.Types.ObjectId, ref: "Project" },
   tasks: [
     {
