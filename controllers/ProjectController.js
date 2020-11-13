@@ -4,7 +4,15 @@ const get = async (req, res) => {
   let results = await Project.find()
     .select(["color", "title", "active", "type"])
     .where("active", 1)
-    .populate("sprints", ["title", "type", 'tasks', 'start', 'end', 'progress']);
+    // .populate("sprints", ["title", "type", 'tasks', 'start', 'end', 'progress']);
+    .populate({ 
+      path: 'sprints',
+      select : ["title", "type", 'tasks', 'start', 'end', 'progress'],
+      populate : {
+        path: 'tasks',
+        select : ['title', 'progress', 'state', 'type', 'date', 'url',]
+      }
+    });
   return res.status(201).json(results);
 };
 const getById = async (req, res) => {

@@ -3,7 +3,14 @@ const Sprint = require("./../models/Sprint");
 
 const get = async (req, res) => {
   const sprints = await Sprint.find()
-    .populate("tasks")
+    .populate("tasks",[
+        'title',
+        'progress',
+        'state',
+        'type',
+        'date',
+        'url',
+      ])
     // .populate('project')
     .select(["color", "title", "active", "priority", "progress"]);
   return res.status(201).json(sprints);
