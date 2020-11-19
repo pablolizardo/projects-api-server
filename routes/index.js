@@ -15,6 +15,7 @@ router.get('/projects/:id', ProjectController.getById)
 router.get('/sprints', SprintController.get)
 router.get('/sprints/:id', SprintController.getById)
 router.post('/sprints', SprintController.store)
+router.put('/sprints/:id', SprintController.update)
 
 // tasks
 router.get('/tasks', TaskController.get)

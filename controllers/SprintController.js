@@ -32,7 +32,18 @@ const store = async (req, res) => {
     project.save();
   });
   return res.status(201).json(sprint);
-
 };
 
-module.exports = { get, getById, store };
+const update = async (req,res) => {
+  let sprint = await Sprint.findOne({ _id: req.params.id})
+  // moving case
+  if(req.body.start && req.body.end ) { 
+    sprint.start = req.body.start
+    sprint.end = req.body.end
+    await sprint.save()
+    return res.status(201).json(sprint)
+  }
+  return res.status(204).json('no sprint was found')
+}
+
+module.exports = { get, getById, store, update };
